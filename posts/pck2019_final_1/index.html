@@ -1,0 +1,116 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=color-scheme content="light dark"><meta name=supported-color-schemes content="light dark"><title>PCK2019 本選 参加記 (1)&nbsp;&ndash;&nbsp;ecto0310's blog</title><link rel=stylesheet href=/css/core.min.1b0a4daaed9a5eb57b16fa6895cbfe09fca1f1c8b767e27b0bb93fec02407c68c67a3fce7ee00e1530c0877de657ead1.css integrity=sha384-GwpNqu2aXrV7Fvpolcv+Cfyh8ci3Z+J7C7k/7AJAfGjGej/OfuAOFTDAh33mV+rR><meta name=twitter:card content="summary"><meta name=twitter:title content="PCK2019 本選 参加記 (1)"><body><section id=header><div class="header wrap"><span class="header left-side"><a class="site home" href=/><img class="site logo" src=/avatar.png alt><span class="site name">ecto0310's blog</span></a></span>
+<span class="header right-side"><div class="nav wrap"><nav class=nav><a class="nav item" href=/tags/>Tags</a><a class="nav item" href=/profile/>Profile</a><a class="nav item" href=https://twitter%2ecom/ecto0310 target=_blank rel="noopener noreferrer">Twitter</a><a class="nav item" href=https://github%2ecom/ecto0310 target=_blank rel="noopener noreferrer">GithHub</a></nav></div></span></div></section><section id=content><div class=article-container><section class="article header"><h1 class="article title">PCK2019 本選 参加記 (1)</h1><p class="article date">2019-11-15</p></section><article class="article markdown-body"><h2 id=はじめに>はじめに</h2><p>予選に通ったので本選に参加しました．<br>この記事では競技中の事を書きます．<br><a href=../pck2019_final_2>本選参加記(2)</a><br><a href=../pck2019_qual>予選参加記</a></p><h2 id=競技前>競技前</h2><p>競技環境が去年まで画像で見てたのと違くて少し驚きました．<br>結構緊張してましたが，人と話したことで少し落ち着きました．<br>競技開始前にログインさせて欲しいと思いました．<br>担当は私が基本的に解いて相方は日本語担当です．</p><h2 id=競技中>競技中</h2><p><img src=submitlist.jpg alt="Submit list"></p><h3 id=1問目-目盛りのないストップウォッチ>1問目 目盛りのないストップウォッチ</h3><p>FAを狙っていましたが，ログインに3回も失敗して1分強無駄にした挙げ句，焦ってフォーム直書きで出そうとしてCE,WA,WAを食らってこの時点で精神が死にました．<br>4回目で大人しくTeraPadを起動してちゃんとサンプルを通してから提出しました．</p><details><summary>解法</summary>
+$ \displaystyle T/A*R$を計算します．</details>
+<details><summary>コード(00:08:06 3WA)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span><span class=p>.</span><span class=n>setf</span><span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>ios_base</span><span class=o>::</span><span class=n>fixed</span><span class=p>,</span> <span class=n>std</span><span class=o>::</span><span class=n>ios_base</span><span class=o>::</span><span class=n>floatfield</span><span class=p>);</span>
+  <span class=n>i64</span> <span class=n>a</span><span class=p>,</span> <span class=n>t</span><span class=p>,</span> <span class=n>r</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>a</span> <span class=o>&gt;&gt;</span> <span class=n>t</span> <span class=o>&gt;&gt;</span> <span class=n>r</span><span class=p>;</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=kt>double</span><span class=p>)</span><span class=n>t</span> <span class=o>/</span> <span class=n>a</span> <span class=o>*</span> <span class=n>r</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=2問目-ガソリンスタンド>2問目 ガソリンスタンド</h3><p>審査委員特別賞が欲しかったので綺麗に書くように意識してました．<br>1問目を引きずっていて，とても焦っていました．</p><details><summary>解法</summary>
+素直にシミュレーションをします．</details>
+<details><summary>コード(00:17:56)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>n</span><span class=p>,</span> <span class=n>m</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span> <span class=o>&gt;&gt;</span> <span class=n>m</span><span class=p>;</span>
+  <span class=n>queue</span><span class=o>&lt;</span><span class=n>i64</span><span class=o>&gt;</span> <span class=n>que</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>_</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>_</span> <span class=o>&lt;</span> <span class=n>m</span><span class=p>;</span> <span class=n>_</span><span class=o>++</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>i64</span> <span class=n>s</span><span class=p>;</span>
+    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>s</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>s</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>i64</span> <span class=n>lane</span><span class=p>;</span>
+      <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>lane</span><span class=p>;</span>
+      <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>que</span><span class=p>[</span><span class=n>lane</span> <span class=o>-</span> <span class=mi>1</span><span class=p>].</span><span class=n>front</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+      <span class=n>que</span><span class=p>[</span><span class=n>lane</span> <span class=o>-</span> <span class=mi>1</span><span class=p>].</span><span class=n>pop</span><span class=p>();</span>
+    <span class=p>}</span>
+    <span class=k>else</span>
+    <span class=p>{</span>
+      <span class=n>i64</span> <span class=n>car</span><span class=p>;</span>
+      <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>car</span><span class=p>;</span>
+      <span class=n>i64</span> <span class=n>p</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>c</span> <span class=o>=</span> <span class=mf>1e9</span><span class=p>;</span>
+      <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>que</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>size</span><span class=p>()</span> <span class=o>&lt;</span> <span class=n>c</span><span class=p>)</span>
+        <span class=p>{</span>
+          <span class=n>p</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+          <span class=n>c</span> <span class=o>=</span> <span class=n>que</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>size</span><span class=p>();</span>
+        <span class=p>}</span>
+      <span class=n>que</span><span class=p>[</span><span class=n>p</span><span class=p>].</span><span class=n>push</span><span class=p>(</span><span class=n>car</span><span class=p>);</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=3問目-海苔>3問目 海苔</h3><p>O(1)で計算しようとして事故りました．<br>事故らない方を実装した方が良いなと思いました．</p><details><summary>解法</summary>
+2枚の面積から重なってる面積の2倍を引きます．</details>
+<details><summary>コード(01:49:24 2WA)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>x1</span><span class=p>,</span> <span class=n>y1</span><span class=p>,</span> <span class=n>w1</span><span class=p>,</span> <span class=n>h1</span><span class=p>,</span> <span class=n>x2</span><span class=p>,</span> <span class=n>y2</span><span class=p>,</span> <span class=n>w2</span><span class=p>,</span> <span class=n>h2</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>x1</span> <span class=o>&gt;&gt;</span> <span class=n>y1</span> <span class=o>&gt;&gt;</span> <span class=n>w1</span> <span class=o>&gt;&gt;</span> <span class=n>h1</span> <span class=o>&gt;&gt;</span> <span class=n>x2</span> <span class=o>&gt;&gt;</span> <span class=n>y2</span> <span class=o>&gt;&gt;</span> <span class=n>w2</span> <span class=o>&gt;&gt;</span> <span class=n>h2</span><span class=p>;</span>
+  <span class=k>if</span> <span class=p>(</span><span class=n>x1</span> <span class=o>+</span> <span class=n>w1</span> <span class=o>&lt;=</span> <span class=n>x2</span> <span class=o>||</span> <span class=n>x2</span> <span class=o>+</span> <span class=n>w2</span> <span class=o>&lt;=</span> <span class=n>x1</span> <span class=o>||</span> <span class=n>y1</span> <span class=o>+</span> <span class=n>h1</span> <span class=o>&lt;=</span> <span class=n>y2</span> <span class=o>||</span> <span class=n>y2</span> <span class=o>+</span> <span class=n>h2</span> <span class=o>&lt;=</span> <span class=n>y1</span><span class=p>)</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>h1</span> <span class=o>*</span> <span class=n>w1</span> <span class=o>+</span> <span class=n>h2</span> <span class=o>*</span> <span class=n>w2</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>else</span>
+  <span class=p>{</span>
+    <span class=n>i64</span> <span class=n>hh</span><span class=p>,</span> <span class=n>ww</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>x1</span> <span class=o>&lt;</span> <span class=n>x2</span> <span class=o>&amp;&amp;</span> <span class=n>x2</span> <span class=o>+</span> <span class=n>w2</span> <span class=o>&lt;</span> <span class=n>x1</span> <span class=o>+</span> <span class=n>w1</span><span class=p>)</span>
+      <span class=n>ww</span> <span class=o>=</span> <span class=n>w2</span><span class=p>;</span>
+    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>x2</span> <span class=o>&lt;</span> <span class=n>x1</span> <span class=o>&amp;&amp;</span> <span class=n>x1</span> <span class=o>+</span> <span class=n>w1</span> <span class=o>&lt;</span> <span class=n>x2</span> <span class=o>+</span> <span class=n>w2</span><span class=p>)</span>
+      <span class=n>ww</span> <span class=o>=</span> <span class=n>w1</span><span class=p>;</span>
+    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>x1</span> <span class=o>&lt;</span> <span class=n>x2</span><span class=p>)</span>
+      <span class=n>ww</span> <span class=o>=</span> <span class=n>x1</span> <span class=o>+</span> <span class=n>w1</span> <span class=o>-</span> <span class=n>x2</span><span class=p>;</span>
+    <span class=k>else</span>
+      <span class=n>ww</span> <span class=o>=</span> <span class=n>x2</span> <span class=o>+</span> <span class=n>w2</span> <span class=o>-</span> <span class=n>x1</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>y1</span> <span class=o>&lt;</span> <span class=n>y2</span> <span class=o>&amp;&amp;</span> <span class=n>y2</span> <span class=o>+</span> <span class=n>h2</span> <span class=o>&lt;</span> <span class=n>y1</span> <span class=o>+</span> <span class=n>h1</span><span class=p>)</span>
+      <span class=n>hh</span> <span class=o>=</span> <span class=n>h2</span><span class=p>;</span>
+    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>y2</span> <span class=o>&lt;</span> <span class=n>y1</span> <span class=o>&amp;&amp;</span> <span class=n>y1</span> <span class=o>+</span> <span class=n>h1</span> <span class=o>&lt;</span> <span class=n>y2</span> <span class=o>+</span> <span class=n>h2</span><span class=p>)</span>
+      <span class=n>hh</span> <span class=o>=</span> <span class=n>h1</span><span class=p>;</span>
+    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>y1</span> <span class=o>&lt;</span> <span class=n>y2</span><span class=p>)</span>
+      <span class=n>hh</span> <span class=o>=</span> <span class=n>y1</span> <span class=o>+</span> <span class=n>h1</span> <span class=o>-</span> <span class=n>y2</span><span class=p>;</span>
+    <span class=k>else</span>
+      <span class=n>hh</span> <span class=o>=</span> <span class=n>y2</span> <span class=o>+</span> <span class=n>h2</span> <span class=o>-</span> <span class=n>y1</span><span class=p>;</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>h1</span> <span class=o>*</span> <span class=n>w1</span> <span class=o>+</span> <span class=n>h2</span> <span class=o>*</span> <span class=n>w2</span> <span class=o>-</span> <span class=n>hh</span> <span class=o>*</span> <span class=n>ww</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=4問目-へびの脱皮>4問目 へびの脱皮</h3><p>紙に書いたら直ぐ方針が生えました．</p><details><summary>解法</summary>
+oが連続している箇所が有れば$ \displaystyle 2^n-1$を加算します．</details>
+<details><summary>コード(01:07:23)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=n>i64</span> <span class=nf>pow</span><span class=p>(</span><span class=n>i64</span> <span class=n>a</span><span class=p>,</span> <span class=n>i64</span> <span class=n>n</span><span class=p>)</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>ret</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=k>for</span> <span class=p>(;</span> <span class=mi>0</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>n</span> <span class=o>&gt;&gt;=</span> <span class=mi>1</span><span class=p>,</span> <span class=n>a</span> <span class=o>=</span> <span class=n>a</span> <span class=o>*</span> <span class=n>a</span><span class=p>)</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>n</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span>
+      <span class=n>ret</span> <span class=o>*=</span> <span class=n>a</span><span class=p>;</span>
+  <span class=k>return</span> <span class=n>ret</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>l</span><span class=p>,</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>string</span> <span class=n>snake</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>l</span> <span class=o>&gt;&gt;</span> <span class=n>n</span> <span class=o>&gt;&gt;</span> <span class=n>snake</span><span class=p>;</span>
+  <span class=n>i64</span> <span class=n>ans</span> <span class=o>=</span> <span class=n>l</span><span class=p>,</span> <span class=n>t</span> <span class=o>=</span> <span class=p>(</span><span class=mi>1</span> <span class=o>-</span> <span class=n>pow</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=n>n</span><span class=p>))</span> <span class=o>/</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>l</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>snake</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;o&#39;</span> <span class=o>&amp;&amp;</span> <span class=n>snake</span><span class=p>[</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;o&#39;</span><span class=p>)</span>
+      <span class=n>ans</span> <span class=o>+=</span> <span class=n>t</span> <span class=o>*</span> <span class=mi>3</span><span class=p>;</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>ans</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=5問目-デジットk>5問目 デジットK</h3><p>解法は正しかったのですが，印刷して持っていったセグ木がバグってました．<br>悲しいです．<br>途中で諦めてPriorityQueueを使う実装に移れば良かったなと今更思ってます．</p><h3 id=6問目-2つの多角形>6問目 2つの多角形</h3><p>最初，制約を見ずにbit全探索をしました．制約はちゃんと見ましょう．</p><h2 id=競技後>競技後</h2><p>ログイン失敗して焦って3WAの時点でもう結果が察せてた気がします．<br>競技中に一回テンパった後に正常な思考が出来るのは滅多に無いので．<br>事故った後でも焦らずにもう少し落ち着けるようにしたかったです．</p><h2 id=おわりに>おわりに</h2><p>悔いが少し残りましたが，次はJOI2次予選が有るのでそれに向けて頑張っていきたいです．</p></article><section class="article labels"><a class=tag href=/tags/pck2019/>PCK2019</a><a class=tag href=/tags/final/>Final</a></section></div><div class="article bottom"><section class="article navigation"><p><a class=link href=/posts/pck2019_final_2/><span class="iconfont icon-article"></span>PCK2019 本選 参加記 (2)</a></p><p><a class=link href=/posts/pck2019_qual/><span class="iconfont icon-article"></span>PCK2019 予選 参加記</a></p></section></div></section><section id=footer><div class=footer-wrap><p class=copyright>©2020 Notepadium.</p><p class=powerby><span>Powered&nbsp;by&nbsp;</span><a href=https://gohugo.io target=_blank rel="noopener noreferrer">Hugo</a><span>&nbsp;&&nbsp;</span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank rel="noopener noreferrer">Notepadium</a></p></div></section><script defer type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity=sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN crossorigin=anonymous></script><script type=text/x-mathjax-config>MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src=/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js integrity=sha384-B5k0ipHc4Sxr5Kc/lDz+ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU></script><script>hljs.initHighlightingOnLoad();</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-173468445-2','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script src=/js/core.min.d995077f25f1a61324e999f2fcd8b080949501ae047d06f1ed3615f64ef66c1cecd679022499f4bdf38ea3b5bd2f8be1.js integrity=sha384-2ZUHfyXxphMk6Zny/NiwgJSVAa4EfQbx7TYV9k72bBzs1nkCJJn0vfOOo7W9L4vh></script><script src=https://kit.fontawesome.com/65cdd39ff1.js crossorigin=anonymous></script></body></html>

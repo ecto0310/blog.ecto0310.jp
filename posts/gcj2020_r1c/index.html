@@ -1,0 +1,87 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=color-scheme content="light dark"><meta name=supported-color-schemes content="light dark"><title>GCJ2020 Round 1C 参加記&nbsp;&ndash;&nbsp;ecto0310's blog</title><link rel=stylesheet href=/css/core.min.1b0a4daaed9a5eb57b16fa6895cbfe09fca1f1c8b767e27b0bb93fec02407c68c67a3fce7ee00e1530c0877de657ead1.css integrity=sha384-GwpNqu2aXrV7Fvpolcv+Cfyh8ci3Z+J7C7k/7AJAfGjGej/OfuAOFTDAh33mV+rR><meta name=twitter:card content="summary"><meta name=twitter:title content="GCJ2020 Round 1C 参加記"><body><section id=header><div class="header wrap"><span class="header left-side"><a class="site home" href=/><img class="site logo" src=/avatar.png alt><span class="site name">ecto0310's blog</span></a></span>
+<span class="header right-side"><div class="nav wrap"><nav class=nav><a class="nav item" href=/tags/>Tags</a><a class="nav item" href=/profile/>Profile</a><a class="nav item" href=https://twitter%2ecom/ecto0310 target=_blank rel="noopener noreferrer">Twitter</a><a class="nav item" href=https://github%2ecom/ecto0310 target=_blank rel="noopener noreferrer">GithHub</a></nav></div></span></div></section><section id=content><div class=article-container><section class="article header"><h1 class="article title">GCJ2020 Round 1C 参加記</h1><p class="article date">2020-05-12</p></section><article class="article markdown-body"><h2 id=はじめに>はじめに</h2><p>Round 1Bで通過出来なかったのでRound 1Cに参加しました．<br><a href=../gcj2020_r1b>Round 1B参加記</a></p><h2 id=競技中>競技中</h2><p><img src=submitlist.jpg alt="Submit list"></p><h3 id=1問目-overexcited-fan>1問目 Overexcited Fan</h3><p>その地点に特定の時間以内に辿りつけるか判定出来れば良さそうでその方法もすぐ思い浮かんだのでそのまま実装しました．</p><details><summary>解法</summary>
+移動する度にその点のX,Y座標の和が経過時間以下かどうか確認し，小さければその時点で到達可能で到達可能な点が無ければ不可能です．</details>
+<details><summary>コード(00:10:37)</summary><table><thead><tr><th>ID</th><th>Verdict</th><th>Score</th></tr></thead><tbody><tr><td>1</td><td>AC</td><td>4/4</td></tr><tr><td>2</td><td>AC</td><td>6/6</td></tr><tr><td>3</td><td>AC</td><td>12/12</td></tr></tbody></table><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+<span class=cp>#define endl &#34;\n&#34;
+</span><span class=cp></span>
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=kt>int</span> <span class=n>T</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>T</span><span class=p>;</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>_</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>_</span> <span class=o>&lt;=</span> <span class=n>T</span><span class=p>;</span> <span class=n>_</span><span class=o>++</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>i64</span> <span class=n>X</span><span class=p>,</span> <span class=n>Y</span><span class=p>;</span>
+    <span class=n>string</span> <span class=n>S</span><span class=p>;</span>
+    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>X</span> <span class=o>&gt;&gt;</span> <span class=n>Y</span> <span class=o>&gt;&gt;</span> <span class=n>S</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>S</span><span class=p>.</span><span class=n>size</span><span class=p>();</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;N&#39;</span><span class=p>)</span>
+        <span class=n>Y</span><span class=o>++</span><span class=p>;</span>
+      <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;S&#39;</span><span class=p>)</span>
+        <span class=n>Y</span><span class=o>--</span><span class=p>;</span>
+      <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;W&#39;</span><span class=p>)</span>
+        <span class=n>X</span><span class=o>--</span><span class=p>;</span>
+      <span class=k>else</span>
+        <span class=n>X</span><span class=o>++</span><span class=p>;</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>abs</span><span class=p>(</span><span class=n>X</span><span class=p>)</span> <span class=o>+</span> <span class=n>abs</span><span class=p>(</span><span class=n>Y</span><span class=p>)</span> <span class=o>&lt;=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Case #&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>_</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;: &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>goto</span> <span class=n>fin</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Case #&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>_</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;: &#34;</span>
+         <span class=o>&lt;&lt;</span> <span class=s>&#34;IMPOSSIBLE&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=nl>fin</span><span class=p>:;</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=2問目-overrandomized>2問目 Overrandomized</h3><p>直感的に先頭に出現する回数が高い方が小さい方が値が小さくなりそうだったので直感を信じて実装しました．</p><details><summary>解法</summary>
+先頭での出現回数から1~9の値を確定し，最後に使われてないのが0に確定します．</details>
+<details><summary>コード(02:10:21 5WA)</summary><table><thead><tr><th>ID</th><th>Verdict</th><th>Score</th></tr></thead><tbody><tr><td>1</td><td>AC</td><td>9/9</td></tr><tr><td>2</td><td>AC</td><td>10/10</td></tr><tr><td>3</td><td>AC</td><td>17/17</td></tr></tbody></table><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+<span class=cp>#define endl &#34;\n&#34;
+</span><span class=cp></span>
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=kt>int</span> <span class=n>T</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>T</span><span class=p>;</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>_</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>_</span> <span class=o>&lt;=</span> <span class=n>T</span><span class=p>;</span> <span class=n>_</span><span class=o>++</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>i64</span> <span class=n>U</span><span class=p>;</span>
+    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>U</span><span class=p>;</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;&gt;</span> <span class=n>res</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span>
+    <span class=n>set</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;</span> <span class=n>tt</span><span class=p>;</span>
+    <span class=n>map</span><span class=o>&lt;</span><span class=kt>char</span><span class=p>,</span> <span class=n>i64</span><span class=o>&gt;</span> <span class=n>s3</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=mi>10000</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>string</span> <span class=n>M</span><span class=p>,</span> <span class=n>R</span><span class=p>;</span>
+      <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>M</span> <span class=o>&gt;&gt;</span> <span class=n>R</span><span class=p>;</span>
+      <span class=k>for</span> <span class=p>(</span><span class=kt>char</span> <span class=nl>j</span> <span class=p>:</span> <span class=n>R</span><span class=p>)</span>
+        <span class=n>tt</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>j</span><span class=p>);</span>
+      <span class=n>s3</span><span class=p>[</span><span class=n>R</span><span class=p>[</span><span class=mi>0</span><span class=p>]]</span><span class=o>++</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>string</span> <span class=n>ans</span><span class=p>;</span>
+    <span class=n>set</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;</span> <span class=n>use</span><span class=p>;</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=n>pair</span><span class=o>&lt;</span><span class=n>i64</span><span class=p>,</span> <span class=kt>char</span><span class=o>&gt;&gt;</span> <span class=n>list</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>pair</span><span class=o>&lt;</span><span class=kt>char</span><span class=p>,</span> <span class=n>i64</span><span class=o>&gt;</span> <span class=nl>i</span> <span class=p>:</span> <span class=n>s3</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>list</span><span class=p>.</span><span class=n>push_back</span><span class=p>({</span><span class=n>i</span><span class=p>.</span><span class=n>second</span><span class=p>,</span> <span class=n>i</span><span class=p>.</span><span class=n>first</span><span class=p>});</span>
+      <span class=n>use</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>i</span><span class=p>.</span><span class=n>first</span><span class=p>);</span>
+    <span class=p>}</span>
+    <span class=n>sort</span><span class=p>(</span><span class=n>list</span><span class=p>.</span><span class=n>rbegin</span><span class=p>(),</span> <span class=n>list</span><span class=p>.</span><span class=n>rend</span><span class=p>());</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>pair</span><span class=o>&lt;</span><span class=n>i64</span><span class=p>,</span> <span class=kt>char</span><span class=o>&gt;</span> <span class=nl>i</span> <span class=p>:</span> <span class=n>list</span><span class=p>)</span>
+      <span class=n>ans</span> <span class=o>+=</span> <span class=n>i</span><span class=p>.</span><span class=n>second</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kt>char</span> <span class=nl>j</span> <span class=p>:</span> <span class=n>tt</span><span class=p>)</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>use</span><span class=p>.</span><span class=n>count</span><span class=p>(</span><span class=n>j</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+      <span class=p>{</span>
+        <span class=n>ans</span> <span class=o>=</span> <span class=n>j</span> <span class=o>+</span> <span class=n>ans</span><span class=p>;</span>
+        <span class=k>break</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Case #&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>_</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;: &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>ans</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=3問目-oversized-pancake-choppers>3問目 Oversized Pancake Choppers</h3><p>この時点で順位がかなり惜しいところまで来ていたのでなんとしてもTest set 1を通したいと思い色々試しましたが結局通せませんでした．</p><h2 id=競技後>競技後</h2><p>Round 1A，2Bとは違いギリギリのラインで落ちた事が分かりとても悔しくなりました．<br>ペナルティは全く届きそうにないので3問目のTest set 1さえ取れてれば&mldr;と何回も思いました．</p><h2 id=結果>結果</h2><p>最終順位が確定し，58点のペナルティが2:30:21で1764位で今年もRound 1で敗退が決まりました．<br>来年こそはRound 1の壁を超えて行きたいです．</p></article><section class="article labels"><a class=tag href=/tags/gcj2020/>GCJ2020</a><a class=tag href=/tags/qual/>Qual</a></section></div><div class="article bottom"><section class="article navigation"><p><a class=link href=/posts/corpse_pc98_emu/><span class="iconfont icon-article"></span>[覚書] PC98版 コープスパーティー 起動方法</a></p><p><a class=link href=/posts/gcj2020_r1b/><span class="iconfont icon-article"></span>GCJ2020 Round 1B 参加記</a></p></section></div></section><section id=footer><div class=footer-wrap><p class=copyright>©2020 Notepadium.</p><p class=powerby><span>Powered&nbsp;by&nbsp;</span><a href=https://gohugo.io target=_blank rel="noopener noreferrer">Hugo</a><span>&nbsp;&&nbsp;</span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank rel="noopener noreferrer">Notepadium</a></p></div></section><script defer type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity=sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN crossorigin=anonymous></script><script type=text/x-mathjax-config>MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src=/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js integrity=sha384-B5k0ipHc4Sxr5Kc/lDz+ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU></script><script>hljs.initHighlightingOnLoad();</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-173468445-2','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script src=/js/core.min.d995077f25f1a61324e999f2fcd8b080949501ae047d06f1ed3615f64ef66c1cecd679022499f4bdf38ea3b5bd2f8be1.js integrity=sha384-2ZUHfyXxphMk6Zny/NiwgJSVAa4EfQbx7TYV9k72bBzs1nkCJJn0vfOOo7W9L4vh></script><script src=https://kit.fontawesome.com/65cdd39ff1.js crossorigin=anonymous></script></body></html>

@@ -1,0 +1,208 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=color-scheme content="light dark"><meta name=supported-color-schemes content="light dark"><title>PCK2019 予選 参加記&nbsp;&ndash;&nbsp;ecto0310's blog</title><link rel=stylesheet href=/css/core.min.1b0a4daaed9a5eb57b16fa6895cbfe09fca1f1c8b767e27b0bb93fec02407c68c67a3fce7ee00e1530c0877de657ead1.css integrity=sha384-GwpNqu2aXrV7Fvpolcv+Cfyh8ci3Z+J7C7k/7AJAfGjGej/OfuAOFTDAh33mV+rR><meta name=twitter:card content="summary"><meta name=twitter:title content="PCK2019 予選 参加記"><body><section id=header><div class="header wrap"><span class="header left-side"><a class="site home" href=/><img class="site logo" src=/avatar.png alt><span class="site name">ecto0310's blog</span></a></span>
+<span class="header right-side"><div class="nav wrap"><nav class=nav><a class="nav item" href=/tags/>Tags</a><a class="nav item" href=/profile/>Profile</a><a class="nav item" href=https://twitter%2ecom/ecto0310 target=_blank rel="noopener noreferrer">Twitter</a><a class="nav item" href=https://github%2ecom/ecto0310 target=_blank rel="noopener noreferrer">GithHub</a></nav></div></span></div></section><section id=content><div class=article-container><section class="article header"><h1 class="article title">PCK2019 予選 参加記</h1><p class="article date">2019-09-25</p></section><article class="article markdown-body"><h2 id=はじめに>はじめに</h2><p>パソコン甲子園 プログラミング部門の予選に参加しました．
+相方はSuperCon2019に引き続き副部長です．</p><h2 id=競技前>競技前</h2><p>13:30開始なのに12:45まで授業でHRが終わったのは13:00過ぎでお昼を速攻で食べました．<br>もう少しゆっくりお昼を食べさせてほしいです．<br>この時忘れ物に気が付きました．家に蟻本を忘れました．<br>致命的です．</p><h2 id=競技中>競技中</h2><p><img src=submitlist.jpg alt="Submit list"></p><h3 id=1問目-柴犬の数>1問目 柴犬の数</h3><p>去年はFAが取れず悔しかったので今年こそはと思いFAを狙いに行きました．<br>提出をしたら提出IDが1でACが出てFAが取れたと確信してとても喜びました．</p><blockquote class=twitter-tweet data-theme=dark><p lang=ja dir=ltr>初の正解チームは 芝浦工業大学柏高等学校 P008 「TLE」 チームです。<br>わずか34秒で正解しました！ <a href="https://twitter.com/hashtag/pckoushien?src=hash&ref_src=twsrc%5Etfw">#pckoushien</a> <a href="https://twitter.com/hashtag/u_aizu?src=hash&ref_src=twsrc%5Etfw">#u_aizu</a></p>&mdash; パソコン甲子園ツイッター班 (@pc_koshien) <a href="https://twitter.com/pc_koshien/status/1172730137642553344?ref_src=twsrc%5Etfw">September 14, 2019</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script><details><summary>解法</summary>
+入力を受け取って全て足して出力します。</details>
+<details><summary>コード (00:00:34)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>r</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>w</span><span class=p>,</span> <span class=n>g</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>r</span> <span class=o>&gt;&gt;</span> <span class=n>b</span> <span class=o>&gt;&gt;</span> <span class=n>w</span> <span class=o>&gt;&gt;</span> <span class=n>g</span><span class=p>;</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>r</span> <span class=o>+</span> <span class=n>b</span> <span class=o>+</span> <span class=n>w</span> <span class=o>+</span> <span class=n>g</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=2問目-アスキー文字>2問目 アスキー文字</h3><p>大文字のアスキーコードが65~90なのにif文を60~99で分岐を書いてしまいWAを出しました．<br>通るだろうと思って3問目時終わった後に確認したらWAになってて絶望的な気持ちになりました．</p><details><summary>解法</summary>
+問題の指示通りにif文を書きます．</details>
+<details><summary>コード (00:05:44+1WA)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span><span class=p>;</span>
+  <span class=k>if</span> <span class=p>(</span><span class=mi>65</span> <span class=o>&lt;=</span> <span class=n>n</span> <span class=o>&amp;&amp;</span> <span class=n>n</span> <span class=o>&lt;=</span> <span class=mi>90</span><span class=p>)</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=mi>97</span> <span class=o>&lt;=</span> <span class=n>n</span> <span class=o>&amp;&amp;</span> <span class=n>n</span> <span class=o>&lt;=</span> <span class=mi>122</span><span class=p>)</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=mi>2</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>else</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=mi>0</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=3問目-2の累乗>3問目 2の累乗</h3><p>素直に書いて無事通って安心しました．</p><details><summary>解法</summary>
+1に2を掛けていきNを次2を掛けたらNを超える場合にループから抜けます．</details>
+<details><summary>コード (00:04:52)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>i64</span> <span class=n>ans</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=k>while</span> <span class=p>(</span><span class=n>ans</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>)</span>
+    <span class=n>ans</span> <span class=o>*=</span> <span class=mi>2</span><span class=p>;</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>ans</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=4問目-集会所>4問目 集会所</h3><p>最小の時間を出力しなければならないのに，集会所の場所を出力してWAを出しました．<br>誤読してサンプル通るのやめて欲しいです．</p><details><summary>解法</summary>
+ソートして西の端と東の端の平均の座標が集会所の場所です．
+西端，東端それぞれからかかる時間を求めて大きい方を出力します．</details>
+<details><summary>コード(00:24:36 1WA)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>vector</span><span class=o>&lt;</span><span class=n>i64</span><span class=o>&gt;</span> <span class=n>x</span><span class=p>(</span><span class=n>n</span><span class=p>);</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>x</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+  <span class=n>sort</span><span class=p>(</span><span class=n>x</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>x</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+  <span class=n>i64</span> <span class=n>p</span> <span class=o>=</span> <span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+</span> <span class=n>x</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>])</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>max</span><span class=p>(</span><span class=n>abs</span><span class=p>(</span><span class=n>p</span> <span class=o>-</span> <span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]),</span> <span class=n>abs</span><span class=p>(</span><span class=n>p</span> <span class=o>-</span> <span class=n>x</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]))</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=5問目-ねこのあな>5問目 ねこのあな</h3><p>穴の中に居ない状態から出てくる可能性が有るのを忘れててWAを出しました．<br>こうゆうところでWAを出すのはほんと良くないです．</p><details><summary>解法</summary>
+Stackを用いてシュミレーションをします。</details>
+<details><summary>コード(00:29:50 1WA)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>l</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>l</span><span class=p>;</span>
+  <span class=n>vector</span><span class=o>&lt;</span><span class=n>i64</span><span class=o>&gt;</span> <span class=n>c</span><span class=p>(</span><span class=n>l</span><span class=p>);</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>l</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+  <span class=n>vector</span><span class=o>&lt;</span><span class=n>i64</span><span class=o>&gt;</span> <span class=n>h</span><span class=p>;</span>
+  <span class=n>vector</span><span class=o>&lt;</span><span class=kt>bool</span><span class=o>&gt;</span> <span class=n>in</span><span class=p>(</span><span class=n>l</span><span class=p>);</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>l</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=mi>0</span> <span class=o>&lt;</span> <span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+    <span class=p>{</span>
+      <span class=n>h</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>in</span><span class=p>[</span><span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=mi>1</span><span class=p>])</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=p>}</span>
+      <span class=n>in</span><span class=p>[</span><span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>else</span>
+    <span class=p>{</span>
+      <span class=k>if</span> <span class=p>(</span><span class=mi>0</span> <span class=o>&lt;</span> <span class=n>h</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>&amp;&amp;</span> <span class=n>h</span><span class=p>[</span><span class=n>h</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=o>-</span><span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+      <span class=p>{</span>
+        <span class=n>h</span><span class=p>.</span><span class=n>pop_back</span><span class=p>();</span>
+        <span class=n>in</span><span class=p>[</span><span class=o>-</span><span class=n>c</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+      <span class=p>}</span>
+      <span class=k>else</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;OK&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=6問目-床>6問目 床</h3><p>なんか素直に実装しても通りそうでしたが良いのか何か簡単な方法が有るのかと思ってとても悩みました．<br>悩んでたせいで無駄に時間を使いました．</p><details><summary>解法</summary>
+四角形の角4点の座標を持ち範囲内に入力の座標が来るまで繰り返します．</details>
+<details><summary>コード(00:53:31)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>x</span> <span class=o>&gt;&gt;</span> <span class=n>y</span><span class=p>;</span>
+  <span class=n>i64</span> <span class=n>px</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>};</span>
+  <span class=n>i64</span> <span class=n>py</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>};</span>
+  <span class=k>if</span> <span class=p>(</span><span class=n>x</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=n>y</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>%</span> <span class=mi>4</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>+=</span> <span class=n>abs</span><span class=p>(</span><span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>x</span> <span class=o>&amp;&amp;</span> <span class=n>x</span> <span class=o>&lt;</span> <span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>y</span> <span class=o>&amp;&amp;</span> <span class=n>y</span> <span class=o>&lt;</span> <span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=mi>3</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>%</span> <span class=mi>4</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>+=</span> <span class=n>abs</span><span class=p>(</span><span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>x</span> <span class=o>&amp;&amp;</span> <span class=n>x</span> <span class=o>&lt;</span> <span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>y</span> <span class=o>&amp;&amp;</span> <span class=n>y</span> <span class=o>&lt;</span> <span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=mi>3</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>%</span> <span class=mi>4</span> <span class=o>==</span> <span class=mi>2</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>-=</span> <span class=n>abs</span><span class=p>(</span><span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>x</span> <span class=o>&amp;&amp;</span> <span class=n>x</span> <span class=o>&lt;</span> <span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>y</span> <span class=o>&amp;&amp;</span> <span class=n>y</span> <span class=o>&lt;</span> <span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=mi>3</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>else</span>
+    <span class=p>{</span>
+      <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>-=</span> <span class=n>abs</span><span class=p>(</span><span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>px</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>x</span> <span class=o>&amp;&amp;</span> <span class=n>x</span> <span class=o>&lt;</span> <span class=n>px</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=n>py</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=n>y</span> <span class=o>&amp;&amp;</span> <span class=n>y</span> <span class=o>&lt;</span> <span class=n>py</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+      <span class=p>{</span>
+        <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=mi>3</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=7問目-アカベコ20>7問目 アカベコ20</h3><p>128bit整数を使ったり謎な事をして2WAです．</p><details><summary>解法</summary>
+全ての組み合わせで何日周期で公演をするか最小公倍数を求め，最小公倍数の種類の数を出力します．</details>
+<details><summary>コード(01:59:10 2WA)</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>using</span> <span class=n>i64</span> <span class=o>=</span> <span class=kt>long</span> <span class=kt>long</span><span class=p>;</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>i64</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span><span class=p>;</span>
+  <span class=n>vector</span><span class=o>&lt;</span><span class=n>i64</span><span class=o>&gt;</span> <span class=n>p</span><span class=p>(</span><span class=n>n</span><span class=p>);</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>p</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+  <span class=n>set</span><span class=o>&lt;</span><span class=n>i64</span><span class=o>&gt;</span> <span class=n>d</span><span class=p>;</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=p>(</span><span class=mi>1LL</span> <span class=o>&lt;&lt;</span> <span class=n>n</span><span class=p>);</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>i64</span> <span class=n>g</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>i64</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>&amp;</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>j</span><span class=p>))</span>
+      <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>g</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+          <span class=n>g</span> <span class=o>=</span> <span class=n>p</span><span class=p>[</span><span class=n>j</span><span class=p>];</span>
+        <span class=k>else</span>
+          <span class=n>g</span> <span class=o>=</span> <span class=n>g</span> <span class=o>*</span> <span class=n>p</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>/</span> <span class=n>__gcd</span><span class=p>(</span><span class=n>g</span><span class=p>,</span> <span class=n>p</span><span class=p>[</span><span class=n>j</span><span class=p>]);</span>
+      <span class=p>}</span>
+    <span class=n>d</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>g</span><span class=p>);</span>
+  <span class=p>}</span>
+  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>d</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h3 id=9問目-天空の城ツルガ>9問目 天空の城ツルガ</h3><p>何も分かりません．<br>幾何は無理です．</p><h3 id=10問目-トーナメントの記録>10問目 トーナメントの記録</h3><p>サンプルだけ何故か通るコードを出しました．<br>勿論WAです．</p><h2 id=競技後>競技後</h2><p>7完5WA，ペナルティの数的に地域枠も無理そうな結果でした．<br>順位表凍結時で31位でそこから何も通していないので35位ぐらいかなと思いました．<br>相方にほぼ確実に落ちたことを報告しました．<br>とても悔しく，今年こそは本選に行きたかったので泣いていました．</p><h2 id=結果>結果</h2><p>発表の日は落ちたことを察していたので気にせずに寝ていました．<br>起きたら14時過ぎで，Twitterを開いたらHideさんからリプライが来ていて内容を見て最初嫌がらせか???って思いました．(ほんとごめんなさい)<br>ページを見たらほんとに通っててとても驚きました．<br>直ぐ人を疑うのをやめましょう．</p></article><section class="article labels"><a class=tag href=/tags/pck2019/>PCK2019</a><a class=tag href=/tags/qual/>Qual</a></section></div><div class="article bottom"><section class="article navigation"><p><a class=link href=/posts/pck2019_final_1/><span class="iconfont icon-article"></span>PCK2019 本選 参加記 (1)</a></p><p><a class=link href=/posts/supercon2019_final/><span class="iconfont icon-article"></span>SuperCon2019 本選 参加記</a></p></section></div></section><section id=footer><div class=footer-wrap><p class=copyright>©2020 Notepadium.</p><p class=powerby><span>Powered&nbsp;by&nbsp;</span><a href=https://gohugo.io target=_blank rel="noopener noreferrer">Hugo</a><span>&nbsp;&&nbsp;</span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank rel="noopener noreferrer">Notepadium</a></p></div></section><script defer type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity=sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN crossorigin=anonymous></script><script type=text/x-mathjax-config>MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src=/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js integrity=sha384-B5k0ipHc4Sxr5Kc/lDz+ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU></script><script>hljs.initHighlightingOnLoad();</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-173468445-2','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script src=/js/core.min.d995077f25f1a61324e999f2fcd8b080949501ae047d06f1ed3615f64ef66c1cecd679022499f4bdf38ea3b5bd2f8be1.js integrity=sha384-2ZUHfyXxphMk6Zny/NiwgJSVAa4EfQbx7TYV9k72bBzs1nkCJJn0vfOOo7W9L4vh></script><script src=https://kit.fontawesome.com/65cdd39ff1.js crossorigin=anonymous></script></body></html>

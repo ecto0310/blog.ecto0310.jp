@@ -1,0 +1,123 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.68.3"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=color-scheme content="light dark"><meta name=supported-color-schemes content="light dark"><title>SuperCon2019 予選 参加記&nbsp;&ndash;&nbsp;ecto0310's blog</title><link rel=stylesheet href=/css/core.min.1b0a4daaed9a5eb57b16fa6895cbfe09fca1f1c8b767e27b0bb93fec02407c68c67a3fce7ee00e1530c0877de657ead1.css integrity=sha384-GwpNqu2aXrV7Fvpolcv+Cfyh8ci3Z+J7C7k/7AJAfGjGej/OfuAOFTDAh33mV+rR><meta name=twitter:card content="summary"><meta name=twitter:title content="SuperCon2019 予選 参加記"><body><section id=header><div class="header wrap"><span class="header left-side"><a class="site home" href=/><img class="site logo" src=/avatar.png alt><span class="site name">ecto0310's blog</span></a></span>
+<span class="header right-side"><div class="nav wrap"><nav class=nav><a class="nav item" href=/tags/>Tags</a><a class="nav item" href=/profile/>Profile</a><a class="nav item" href=https://twitter%2ecom/ecto0310 target=_blank rel="noopener noreferrer">Twitter</a><a class="nav item" href=https://github%2ecom/ecto0310 target=_blank rel="noopener noreferrer">GithHub</a></nav></div></span></div></section><section id=content><div class=article-container><section class="article header"><h1 class="article title">SuperCon2019 予選 参加記</h1><p class="article date">2019-06-29</p></section><article class="article markdown-body"><h2 id=はじめに>はじめに</h2><p>第25回スーパーコンピューティングコンテスト 予選に参加しました．<br>部活の副部長と一緒に出ました．<br>相方はC++は書けないの基本的に1人で作業しました．</p><h2 id=競技中>競技中</h2><h3 id=1日目-529>1日目 (5/29)</h3><p>問題を一読しましたが，日本語力が無いので理解が出来ず苦しんでいました．<br>夜になり，やっと理解出来たので取り敢えず2,3級の回答コードを書きました．</p><h3 id=2日目-530>2日目 (5/30)</h3><p>何をすれば良いのか分からないので取り敢えず愚直な山登り法のコードを書きました．</p><h3 id=3日目-531>3日目 (5/31)</h3><p>山登り法では改善方向にしか遷移しないため，局所最適解にはまり答えに辿り着けなかったら怖いなと思い100万回の試行で解にたどり着けなかった場合初期状態に戻すように変更しました．</p><h3 id=13日目-610>13日目 (6/10)</h3><p>何も思いつかずに放置していたらいつの間にか13日目になっていました．
+誤差範囲の高速化ですが，取り敢えずfor文を全てwhile文に書き換えました．</p><h3 id=14日目-611>14日目 (6/11)</h3><p>まだ残り日数がありますが，初日に書いた2級のコードを用いてテストして大丈夫だったので提出をしました．</p><h2 id=提出データ>提出データ</h2><p>Ryzen 7 2700(3.2GHz)の環境でサンプルに対して7.0[sec]程度の実行時間でした．</p><details><summary>コード</summary><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&#34;sc1.h&#34;</span><span class=cp>
+</span><span class=cp></span>
+<span class=kr>inline</span> <span class=kt>int</span> <span class=nf>check</span><span class=p>(</span><span class=kt>int</span> <span class=n>c</span><span class=p>)</span>
+<span class=p>{</span>
+  <span class=kt>int</span> <span class=n>ret</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=kt>int</span> <span class=n>query</span><span class=p>,</span> <span class=n>input</span><span class=p>,</span> <span class=n>output</span><span class=p>,</span> <span class=n>newlon</span><span class=p>[</span><span class=mi>4</span><span class=p>],</span> <span class=n>sum</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>j</span><span class=p>,</span> <span class=n>layer</span><span class=p>;</span>
+  <span class=n>query</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=k>while</span> <span class=p>(</span><span class=n>query</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>input</span> <span class=o>=</span> <span class=n>SC_prob</span><span class=p>[</span><span class=n>c</span><span class=p>][</span><span class=n>query</span> <span class=o>*</span> <span class=mi>2</span><span class=p>];</span>
+    <span class=n>output</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=n>newlon</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>newlon</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>newlon</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>newlon</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=mi>7</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>sum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=k>while</span> <span class=p>(</span><span class=n>j</span> <span class=o>&lt;</span> <span class=mi>6</span><span class=p>)</span>
+      <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>input</span> <span class=o>&amp;</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>j</span><span class=p>))</span>
+          <span class=n>sum</span> <span class=o>+=</span> <span class=n>SC_J</span><span class=p>[</span><span class=n>i</span> <span class=o>*</span> <span class=mi>6</span> <span class=o>+</span> <span class=n>j</span><span class=p>];</span>
+        <span class=n>j</span><span class=o>++</span><span class=p>;</span>
+      <span class=p>}</span>
+      <span class=k>if</span> <span class=p>(</span><span class=mi>0</span> <span class=o>&lt;</span> <span class=n>sum</span><span class=p>)</span>
+        <span class=n>newlon</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>|=</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>i</span><span class=p>);</span>
+      <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>layer</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>while</span> <span class=p>(</span><span class=n>layer</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=mi>7</span><span class=p>)</span>
+      <span class=p>{</span>
+        <span class=n>sum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>j</span> <span class=o>&lt;</span> <span class=mi>7</span><span class=p>)</span>
+        <span class=p>{</span>
+          <span class=k>if</span> <span class=p>(</span><span class=n>newlon</span><span class=p>[</span><span class=n>layer</span><span class=p>]</span> <span class=o>&amp;</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>j</span><span class=p>))</span>
+            <span class=n>sum</span> <span class=o>+=</span> <span class=n>SC_J</span><span class=p>[</span><span class=mi>42</span> <span class=o>+</span> <span class=mi>49</span> <span class=o>*</span> <span class=n>layer</span> <span class=o>+</span> <span class=n>i</span> <span class=o>*</span> <span class=mi>7</span> <span class=o>+</span> <span class=n>j</span><span class=p>];</span>
+          <span class=n>j</span><span class=o>++</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>(</span><span class=mi>0</span> <span class=o>&lt;</span> <span class=n>sum</span><span class=p>)</span>
+          <span class=n>newlon</span><span class=p>[</span><span class=n>layer</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>|=</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>i</span><span class=p>);</span>
+        <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+      <span class=p>}</span>
+      <span class=n>layer</span><span class=o>++</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=mi>4</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>sum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+      <span class=k>while</span> <span class=p>(</span><span class=n>j</span> <span class=o>&lt;</span> <span class=mi>7</span><span class=p>)</span>
+      <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>newlon</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>&amp;</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>j</span><span class=p>))</span>
+          <span class=n>sum</span> <span class=o>+=</span> <span class=n>SC_J</span><span class=p>[</span><span class=mi>189</span> <span class=o>+</span> <span class=n>i</span> <span class=o>*</span> <span class=mi>7</span> <span class=o>+</span> <span class=n>j</span><span class=p>];</span>
+        <span class=n>j</span><span class=o>++</span><span class=p>;</span>
+      <span class=p>}</span>
+      <span class=k>if</span> <span class=p>(</span><span class=mi>0</span> <span class=o>&lt;</span> <span class=n>sum</span><span class=p>)</span>
+        <span class=n>output</span> <span class=o>|=</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>i</span><span class=p>);</span>
+      <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>x</span> <span class=o>=</span> <span class=n>output</span> <span class=o>^</span> <span class=n>SC_prob</span><span class=p>[</span><span class=n>c</span><span class=p>][</span><span class=n>query</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
+    <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=mi>4</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>x</span> <span class=o>&amp;</span> <span class=p>(</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=n>i</span><span class=p>))</span>
+        <span class=n>ret</span><span class=o>++</span><span class=p>;</span>
+      <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>query</span><span class=o>++</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=n>ret</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=kt>int</span> <span class=n>i</span><span class=p>,</span> <span class=n>query</span><span class=p>,</span> <span class=n>best</span><span class=p>,</span> <span class=n>reset</span><span class=p>,</span> <span class=n>tmp</span><span class=p>,</span> <span class=n>test</span><span class=p>;</span>
+  <span class=n>init_genrand</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+  <span class=n>SC_input</span><span class=p>();</span>
+  <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=n>SC_NJIJ</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>SC_J</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=n>query</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=k>while</span> <span class=p>(</span><span class=n>query</span> <span class=o>&lt;</span> <span class=n>SC_n</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=n>best</span> <span class=o>=</span> <span class=mi>40</span><span class=p>;</span>
+    <span class=n>reset</span> <span class=o>=</span> <span class=mi>1000000</span><span class=p>;</span>
+    <span class=k>while</span> <span class=p>(</span><span class=nb>true</span><span class=p>)</span>
+    <span class=p>{</span>
+      <span class=n>tmp</span> <span class=o>=</span> <span class=n>genrand_int31</span><span class=p>()</span> <span class=o>%</span> <span class=n>SC_NJIJ</span><span class=p>;</span>
+      <span class=n>SC_J</span><span class=p>[</span><span class=n>tmp</span><span class=p>]</span> <span class=o>*=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+      <span class=n>test</span> <span class=o>=</span> <span class=n>check</span><span class=p>(</span><span class=n>query</span><span class=p>);</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>test</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+        <span class=k>break</span><span class=p>;</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>best</span> <span class=o>&lt;</span> <span class=n>test</span><span class=p>)</span>
+        <span class=n>SC_J</span><span class=p>[</span><span class=n>tmp</span><span class=p>]</span> <span class=o>*=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+      <span class=k>else</span>
+        <span class=n>best</span> <span class=o>=</span> <span class=n>test</span><span class=p>;</span>
+      <span class=n>reset</span><span class=o>--</span><span class=p>;</span>
+      <span class=k>if</span> <span class=p>(</span><span class=n>reset</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+      <span class=p>{</span>
+        <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=n>SC_NJIJ</span><span class=p>)</span>
+        <span class=p>{</span>
+          <span class=n>SC_J</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+          <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=n>best</span> <span class=o>=</span> <span class=mi>40</span><span class=p>;</span>
+        <span class=n>reset</span> <span class=o>=</span> <span class=mi>1000000</span><span class=p>;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=n>SC_output</span><span class=p>();</span>
+    <span class=n>query</span><span class=o>++</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></details><h2 id=締め切り後>締め切り後</h2><p>Twitter上の他のチームが殆ど1[sec]~3[sec]程度の実行時間で震えました．<br>格の違いを感じ，これは落ちたなと思いました．</p><h2 id=結果>結果</h2><p>オーストラリア研修中の6/19 13:54にメールで本選出場の通知が届いているのを確認しました．<br>落ちるのを確信していたので嬉しかったです．</p></article><section class="article labels"><a class=tag href=/tags/supercon2019/>SuperCon2019</a><a class=tag href=/tags/qual/>Qual</a></section></div><div class="article bottom"><section class="article navigation"><p><a class=link href=/posts/supercon2019_final/><span class="iconfont icon-article"></span>SuperCon2019 本選 参加記</a></p></section></div></section><section id=footer><div class=footer-wrap><p class=copyright>©2020 Notepadium.</p><p class=powerby><span>Powered&nbsp;by&nbsp;</span><a href=https://gohugo.io target=_blank rel="noopener noreferrer">Hugo</a><span>&nbsp;&&nbsp;</span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank rel="noopener noreferrer">Notepadium</a></p></div></section><script defer type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity=sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN crossorigin=anonymous></script><script type=text/x-mathjax-config>MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src=/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js integrity=sha384-B5k0ipHc4Sxr5Kc/lDz+ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU></script><script>hljs.initHighlightingOnLoad();</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-173468445-2','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script src=/js/core.min.d995077f25f1a61324e999f2fcd8b080949501ae047d06f1ed3615f64ef66c1cecd679022499f4bdf38ea3b5bd2f8be1.js integrity=sha384-2ZUHfyXxphMk6Zny/NiwgJSVAa4EfQbx7TYV9k72bBzs1nkCJJn0vfOOo7W9L4vh></script><script src=https://kit.fontawesome.com/65cdd39ff1.js crossorigin=anonymous></script></body></html>
